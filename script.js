@@ -33,17 +33,23 @@ const manageData = {
 	// Метод вывода категорий товара
 	 outPutCategory(data) {
 		const ul = document.createElement('ul');
+		const fragment = document.createDocumentFragment();
+
 		data.forEach(element => {
-			const li = document.createElement('li');
-			li.classList.add('li');
-			const a = document.createElement('a');
-			a.classList.add('menuItem');
-			a.setAttribute('data', element.category);
-			a.innerHTML = element.category;
-			li.appendChild(a);
-			ul.appendChild(li);
-		 	nav.appendChild(ul);
+				const li = document.createElement('li');
+				li.classList.add('li');
+
+				const a = document.createElement('a');
+				a.classList.add('menuItem');
+				a.dataset.category = element.category;
+				a.textContent = element.category;
+
+				li.appendChild(a);
+				fragment.appendChild(li);
 		});
+
+		ul.appendChild(fragment);
+		nav.appendChild(ul);
 
 		addEventListeners.eventClickOnCategory();
 	},
