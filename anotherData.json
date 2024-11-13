@@ -1,0 +1,112 @@
+[
+	{
+		"category": "fruits",
+		"products": [
+			{
+				"name": "Grape",
+				"price": "300",
+				"img": "https://cdn0.iconfinder.com/data/icons/fruity-3/512/Grape-256.png"
+			},
+			{
+				"name": "Lemon",
+				"price": "200",
+				"img": "https://cdn0.iconfinder.com/data/icons/fruity-3/512/Lemon-512.png"
+			},
+			{
+				"name": "Strawberry",
+				"price": "400",
+				"img": "https://cdn0.iconfinder.com/data/icons/fruity-3/512/Strawberry-512.png"
+			},
+			{
+				"name": "Orange",
+				"price": "340",
+				"img": "https://cdn0.iconfinder.com/data/icons/fruity-3/512/Orange-512.png"
+			},
+			{
+				"name": "Bananas",
+				"price": "170",
+				"img": "https://cdn0.iconfinder.com/data/icons/fruity-3/512/Banana-512.png"
+			},
+			{
+				"name": "Cherry",
+				"price": "550",
+				"img": "https://cdn0.iconfinder.com/data/icons/fruity-3/512/Cherry-512.png"
+			},
+			{
+				"name": "Pear",
+				"price": "160",
+				"img": "https://cdn0.iconfinder.com/data/icons/fruity-3/512/Pear-512.png"
+			},
+			{
+				"name": "Mango",
+				"price": "420",
+				"img": "https://cdn0.iconfinder.com/data/icons/fruity-3/512/Mango-512.png"
+			},
+			{
+				"name": "Kiwi",
+				"price": "390",
+				"img": "https://cdn0.iconfinder.com/data/icons/fruity-3/512/Kiwi-512.png"
+			}
+		]
+	},
+	{
+		"category": "sweets",
+		"products": [
+			{
+				"name": "Ice cream",
+				"price": "50",
+				"img": "https://cdn0.iconfinder.com/data/icons/summer-26/512/Donut-512.png"
+			},
+			{
+				"name": "Macaron",
+				"price": "500",
+				"img": "https://cdn0.iconfinder.com/data/icons/bakery-10/512/Macaron-2-512.png"
+			},
+			{
+				"name": "Cupcake",
+				"price": "100",
+				"img": "https://cdn0.iconfinder.com/data/icons/bakery-10/512/Cupcake-512.png"
+			},
+			{
+				"name": "Cookie",
+				"price": "70",
+				"img": "https://cdn0.iconfinder.com/data/icons/bakery-10/512/Cookie-512.png"
+			},
+			{
+				"name": "Cake",
+				"price": "120",
+				"img": "https://cdn0.iconfinder.com/data/icons/bakery-10/512/Cake-512.png"
+			},
+			{
+				"name": "Donut",
+				"price": "40",
+				"img": "https://cdn0.iconfinder.com/data/icons/bakery-10/512/Donut-512.png"
+			}
+		]
+	},
+	{
+		"category": "bakery",
+		"products": [
+			{
+				"name": "Bread",
+				"price": "50",
+				"img": "https://cdn0.iconfinder.com/data/icons/bakery-10/512/Bread-512.png"
+			},
+			{
+				"name": "Bun",
+				"price": "30",
+				"img": "https://cdn0.iconfinder.com/data/icons/bakery-10/512/Bun-512.png"
+			},
+			{
+				"name": "Pretzel",
+				"price": "45",
+				"img": "https://cdn0.iconfinder.com/data/icons/bakery-10/512/Pretzel-512.png"
+			},
+			{
+				"name": "Pie",
+				"price": "700",
+				"img": "https://cdn0.iconfinder.com/data/icons/bakery-10/512/Pie-512.png"
+			}
+		]
+	}
+]
