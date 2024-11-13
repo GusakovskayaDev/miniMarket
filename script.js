@@ -3,13 +3,30 @@ const manageData = {
 	data: [],
 
 	// Асинхронная функция для получения данных из JSON файла
-	async getJson(file, callback) {
+	async getJson(file) {
 		try {
 			const response = await fetch(file);
+			if (!response.ok) {
+				throw new Error(`Ошибка загрузки: ${response.statusText}`);
+			}
 			const data = await response.json();
-			callback(data); // Передаем данные в callback функцию и выполняем ее
+			return data; // Возвращаем данные, чтобы использовать их дальше
 		} catch (error) {
 			console.error("Ошибка при получении данных:", error);
+			throw error;
+		}
+	},
+
+	async loadData() {
+		try {
+			// Загружаем данные из файла
+			const data = await this.getJson('anotherData.json');
+			
+			// Передаем данные в разные функции
+			this.outPutCategory(data);
+			this.outPutProducts(data);
+		} catch (error) {
+			console.error("Ошибка при загрузке данных:", error);
 		}
 	},
 
@@ -23,8 +40,6 @@ const manageData = {
 			a.classList.add('menuItem');
 			a.setAttribute('data', element.category);
 			a.innerHTML = element.category;
-			// a.href = '#' + element.category;
-			// console.log(a);
 			li.appendChild(a);
 			ul.appendChild(li);
 		 	nav.appendChild(ul);
@@ -354,8 +369,9 @@ const addEventListeners = {
 	}
 }
 
-manageData.getJson('anotherData.json', manageData.outPutCategory);
-manageData.getJson('anotherData.json', manageData.outPutProducts);
+// Вызываю функцию для получения данных из файла JSON и последующего отображения этих данных на странице
+manageData.loadData();
+
 cartMethods.downloadCart();
 addEventListeners.eventOnOpenCart();
 cartMethods.productQuantity();
