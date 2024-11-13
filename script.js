@@ -40,7 +40,7 @@ const manageData = {
 				li.classList.add('li');
 
 				const a = document.createElement('a');
-				a.classList.add('menuItem');
+				a.classList.add('menuItem', `link-${element.category}`);
 				a.dataset.category = element.category;
 				a.textContent = element.category;
 
@@ -51,13 +51,12 @@ const manageData = {
 		ul.appendChild(fragment);
 		nav.appendChild(ul);
 
+		this.activeDefault();
 		addEventListeners.eventClickOnCategory();
 	},
 
 	// Метод вывода продуктов
 	outPutProducts(data) {
-		const pasteHere = document.getElementById('pasteHere');
-
 		data.forEach(category => {
 			const section = document.getElementById(category.category);
 
@@ -91,8 +90,18 @@ const manageData = {
 			// Один раз используем appendChild без лишних узлов
 			section.appendChild(fragmentSection);
 		});
+
 		addEventListeners.eventOnProductCard();
 	},
+
+	// Устанавливает отображение товара и делает ссылку активной по умолчанию после перезагрузки страницы
+	activeDefault(){
+		const linkFruits = document.querySelector('.link-fruits');
+		linkFruits.classList.add('active');
+
+		const sectionFruits = document.getElementById('fruits');
+		sectionFruits.classList.add('displayBlock');
+	}
 }
 
 const cartMethods = {
@@ -109,9 +118,6 @@ const cartMethods = {
 		const nameAttribute = card.dataset.name;
 		const priceAttribute = card.dataset.price;
 		const imgAttribute = card.dataset.img;
-		console.log(nameAttribute);
-		console.log(priceAttribute);
-		console.log(imgAttribute);
 
 		// Создаем объект для добавления
 		const addData = {
@@ -140,18 +146,19 @@ const cartMethods = {
 
     // Сохраняем продукт
     this.saveProduct();
-    console.log(this.cart);
 	},
+
 	searchProduct(){
 
 	},
+
 	saveProduct(){
 		localStorage.setItem('productCart', JSON.stringify(this.cart));
 	},
+
 	outPutDataInCart(){
 		const someProducts = document.querySelector('.someProducts');
 		someProducts.innerHTML = '';
-		
 
 		this.cart.forEach(product => {
 			const index = cartMethods.cart.findIndex(element => element.name === product.name);
@@ -191,7 +198,6 @@ const cartMethods = {
 			dec.innerHTML = '-';
 			dec.classList.add('dec');
 			dec.setAttribute('nameProduct', product.name);
-			
 
 			const ph2Summa = document.createElement('h2');
 			const summa = product.price * product.count;
@@ -203,7 +209,6 @@ const cartMethods = {
 			deleteButton.classList.add('deleteButton', `index-delete-${index}`);
 			deleteButton.setAttribute('nameProduct', product.name);
 
-			
 			divQuantity.appendChild(dec);
 			divQuantity.appendChild(Quantity);
 			divQuantity.appendChild(inc);
