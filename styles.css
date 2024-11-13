@@ -107,13 +107,14 @@ ul{
 	column-gap: 20px;
 }
 .sections_container{
+	display: flex;
 	margin-top: 8px;
 	border-radius: 8px;
 	background-color: #ffebe2;
 	padding: 20px;
 	flex: 1;
 }
-.section div{
+.divProduct{
 	margin: 2px;
 	display: inline-flex;
 	flex-direction: column;
@@ -126,12 +127,12 @@ ul{
 	border-radius: 8px;
 	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
 }
-.section div:hover{
+.divProduct:hover{
 	transform:translateY(-2px);
 }
 .section img{
 	width: 60px;
-}
+} 
 .section{
 	display: none;
 }

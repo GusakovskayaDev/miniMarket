@@ -56,29 +56,40 @@ const manageData = {
 
 	// Метод вывода продуктов
 	outPutProducts(data) {
-		data.forEach(element => {
-			const section = document.getElementById(element.category);
-			const products = element.products;
-			const pasteHere = document.getElementById('pasteHere');
-			products.forEach(element => {
-				const container = document.createElement('div');
-				container.classList.add('productCard');
-				container.setAttribute('data_name', element.name);
-				container.setAttribute('data_price', element.price);
-				container.setAttribute('data_img', element.img);
+		const pasteHere = document.getElementById('pasteHere');
+
+		data.forEach(category => {
+			const section = document.getElementById(category.category);
+
+			const fragmentDivProduct = document.createDocumentFragment();
+			const fragmentSection = document.createDocumentFragment();
+
+			category.products.forEach(product => {
+				// Создаем контейнер продукта, задаем dataset и добавляем класс
+				const divProduct = document.createElement('div');
+				divProduct.classList.add('divProduct');
+				divProduct.dataset.name = product.name;
+				divProduct.dataset.price = product.price;
+				divProduct.dataset.img = product.img;
+
+				// Создаем остальные элементы и присваиваем им значения из объекта
 				const title = document.createElement('h3');
 				const price = document.createElement('p');
 				const img = document.createElement('img');
-				
-				title.innerHTML = element.name;
-				price.innerHTML = element.price;
-				img.src = element.img;
-				container.appendChild(title);
-				container.appendChild(img);
-				container.appendChild(price);
-				section.appendChild(container);
-				pasteHere.appendChild(section);
+				title.textContent = product.name;
+				price.textContent = product.price;
+				img.src = product.img;
+
+				// Присваиваем элементы в фрагмент, чтобы не создавать лишних узлов
+				fragmentDivProduct.appendChild(title);
+				fragmentDivProduct.appendChild(img);
+				fragmentDivProduct.appendChild(price);
+
+				divProduct.appendChild(fragmentDivProduct);
+				fragmentSection.appendChild(divProduct);
 			});
+			// Один раз используем appendChild без лишних узлов
+			section.appendChild(fragmentSection);
 		});
 		addEventListeners.eventOnProductCard();
 	},
@@ -95,9 +106,12 @@ const cartMethods = {
 	// Добавление продукта в корзину
 	addProduct(card){
 		// Берем необходимые атрибуты из элемента
-		const nameAttribute = card.getAttribute('data_name');
-		const priceAttribute = card.getAttribute('data_price');
-		const imgAttribute = card.getAttribute('data_img');
+		const nameAttribute = card.dataset.name;
+		const priceAttribute = card.dataset.price;
+		const imgAttribute = card.dataset.img;
+		console.log(nameAttribute);
+		console.log(priceAttribute);
+		console.log(imgAttribute);
 
 		// Создаем объект для добавления
 		const addData = {
@@ -262,8 +276,8 @@ const addEventListeners = {
 
 	// Событие на нажатие по карточке продукта
 	eventOnProductCard(){
-		const allProductCards = document.querySelectorAll('.productCard');
-		allProductCards.forEach(card => {
+		const divProducts = document.querySelectorAll('.divProduct');
+		divProducts.forEach(card => {
 			card.addEventListener('click', function() {
 				cartMethods.addProduct(card);
 				cartMethods.productQuantity();
