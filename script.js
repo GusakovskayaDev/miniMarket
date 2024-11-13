@@ -7,7 +7,6 @@ const manageData = {
 		try {
 			const response = await fetch(file);
 			const data = await response.json();
-			// console.log(data);
 			callback(data); // Передаем данные в callback функцию и выполняем ее
 		} catch (error) {
 			console.error("Ошибка при получении данных:", error);
