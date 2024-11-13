@@ -222,3 +222,117 @@ ul{
 .displayBlock{
 	display: block;
 }
+
+/*smartphones mobiles (portrait)*/
+@media (min-width: 320px) and (max-width: 480px){
+	/* General */
+	body{
+		padding: 12px;
+	}
+
+	/* Container */
+	.grid_container{
+		width: 320px;
+	}
+
+	/* Header */
+	header{
+		padding: 10px 14px;
+	}
+	.logo_container img{
+		width: 40px;
+		height: 40px;
+	}
+	.logo_container h2{
+		font-size: 18px;
+	}
+	.labelQuantity{
+		left: 28px;
+		top: 16px;
+		font-size: 10px;
+	}
+	.labelQuantity::before {
+		width: 18px;
+  	height: 18px;
+	}
+	.summAllProducts{
+		position: absolute;
+		left: -50px;
+		font-size: 14px;
+	}
+
+	/* Navbar */
+	.divNav{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	nav{
+		margin-top: 10px;
+	}
+	ul{
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	/* Main */
+	.main_container{
+		flex-direction: column;
+	}
+	.sections_container{
+		padding: 10px;
+	}
+	.divProduct{
+		width: 92px;
+	}
+	.divProduct h3{
+		font-size: 12px;
+	}
+	.divProduct p{
+		font-size: 14px;
+	}
+	.section img{
+		width: 30px;
+	}
+
+	/* Popup */
+	.cart_Container{
+		width: 290px;
+	}
+	.cart_title{
+		font-size: 10px;
+	}
+	.closeCart{
+		font-size: 16px;
+	}
+	.imageCart{
+		width: 20px;
+		height: 20px;
+	}
+	.rightSide{
+		margin-left: 6px;
+	}
+	.rightSide h2{
+		font-size: 12px;
+	}
+	.rightSide p{
+		font-size: 8px;
+	}
+	.inc, .dec{
+		padding: 2px 6px;
+		font-size: 10px;
+	}
+	.quantity{
+		width: 10px;
+		font-size: 8px;
+	}
+	.deleteButton{
+		padding: 4px 8px;
+		font-size: 10px;
+	}
+	.eachProducts{
+		padding: 4px 6px;
+		margin-bottom: 4px;
+	}
+}
